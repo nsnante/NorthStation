@@ -1,5 +1,5 @@
 # North Station
-![Aurora Logo](http://nsnante.com/images/northStationLogoV2.png)
+![Aurora Logo](http://nsnante.com/images/northStationLogoSmall.png)
 
 **[Website](http://nsnante.com)**
 
