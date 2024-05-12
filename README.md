@@ -1,5 +1,5 @@
 # North Station
-![Aurora Logo](http://nsnante.com/images/northStationLogoSmall.png)
+![North Logo](http://nsnante.com/images/northStationLogoSmall.png)
 
 **[Website](http://nsnante.com)**
 
@@ -55,7 +55,7 @@ You can then perform changes, commit them to said branch, push the changes to yo
 
 To update your master branch when ours is updated, simply go to your fork, click the "Sync fork" ribbon and then "Update Branch".
 
-You can always [join us on our Discord server](https://discord.gg/0sYA49zHYGnKWM9p) for any questions.
+You can always [join us on our Discord server](http://nsnante.com) for any questions.
 
 ### INSTALLATION
 
