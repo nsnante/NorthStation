@@ -1,14 +1,14 @@
-# Aurorastation
-![Aurora Logo](https://wiki.aurorastation.org/images/6/6b/Main_page_banner1.png)
+# North Station
+![Aurora Logo](http://nsnante.com/images/northStationLogoV2.png)
 
-**[Website](https://aurorastation.org/)**
+**[Website](http://nsnante.com)**
 
-**[Code](https://github.com/Aurorastation/Aurora.3)**
+**[Code](https://github.com/nsnante/NorthStation)**
 
 ---
 
 ### LICENSE
-Aurorastation is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE.
+NorthStation is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE.
 
 Commits with a git authorship date prior to `1420675200 +0000` (2015/01/08 00:00) are licensed under the GNU General Public License version 3, which can be found in full in LICENSE-GPL3.txt.
 
@@ -23,7 +23,7 @@ All assets including icons and sound are under a [Creative Commons 3.0 BY-SA lic
 ### GETTING THE CODE
 The simplest way to obtain the code is using the github .zip feature.
 
-Click [here](https://github.com/Aurorastation/Aurora.3/archive/master.zip) to get the latest stable code as a .zip file, then unzip it to wherever you want.
+Click [here](https://github.com/nsnante/NorthStation/archive/master.zip) to get the latest stable code as a .zip file, then unzip it to wherever you want.
 
 If you wish to develop for or using this codebase, please read the "Development" section.
 
@@ -38,7 +38,7 @@ To develop for or using this codebase, the following tools are recommended:
 
 Prepare the development environment:
 
-1. Create a fork of this repository. Once logged in Github and while viewing this repository, click the "Fork" ribbon, or simply click [here](https://github.com/Aurorastation/Aurora.3/fork), give it a name and follow the forking instructions
+1. Create a fork of this repository. Once logged in Github and while viewing this repository, click the "Fork" ribbon, or simply click [here](https://github.com/nsnante/NorthStation/fork), give it a name and follow the forking instructions
 1. Download and install BYOND, login into it
 1. Download and install Git and VSC
 1. Create a folder in which you wish to keep the repository files, preferably on an SSD, then right click → "Git Bash Here". A new command prompt should appear.
@@ -124,7 +124,7 @@ myckeyhere - Head Admin/Dev
 
 ### SQL Setup
 
-The SQL backend for the library and stats tracking requires a MySQL server, as does the optional SQL saves system. Your server details go in config/dbconfig.txt, and initial database setup is done with [flyway](https://flywaydb.org/). Detailed instructions can be found [here](https://github.com/Aurorastation/Aurora.3/tree/master/SQL).
+The SQL backend for the library and stats tracking requires a MySQL server, as does the optional SQL saves system. Your server details go in config/dbconfig.txt, and initial database setup is done with [flyway](https://flywaydb.org/). Detailed instructions can be found [here](https://github.com/nsnante/NorthStation/tree/master/SQL).
 
 ---
 
