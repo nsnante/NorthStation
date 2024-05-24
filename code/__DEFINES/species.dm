@@ -21,6 +21,9 @@
 #define SPECIES_VAURCA_WARFORM		"Vaurca Warform"
 #define SPECIES_VAURCA_BULWARK		"Vaurca Bulwark"
 
+#define SPECIES_PITHOK		"Pithok"
+#define SPECIES_PITHOK_MAJOR		"Pithok Major"
+
 #define SPECIES_IPC					"Baseline Frame"
 #define SPECIES_IPC_SHELL			"Shell Frame"
 #define SPECIES_IPC_G1				"Hephaestus G1 Industrial Frame"

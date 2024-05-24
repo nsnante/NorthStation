@@ -43,12 +43,12 @@
       },
       {
         "type": "dreammaker",
-        "dme": "aurorastation.dme",
+        "dme": "northstation.dme",
         "problemMatcher": [
           "$dreammaker"
         ],
         "group": "build",
-        "label": "dm: build - aurorastation.dme",
+        "label": "dm: build - northstation.dme",
         "dependsOrder": "sequence",
         "dependsOn": [
             "dreamchecker"

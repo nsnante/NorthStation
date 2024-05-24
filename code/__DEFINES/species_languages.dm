@@ -56,6 +56,7 @@
 #define LANGUAGE_VAURCA "Hivenet"
 #define LANGUAGE_AZAZIBA "Sinta'azaziba"
 #define LANGUAGE_SIGN "Sign Language"
+#define LANGUAGE_PITHOK "Pyran"
 
 // Antag Languages
 #define LANGUAGE_CHANGELING "Changeling"

@@ -1,4 +1,4 @@
-environment = "aurorastation.dme"
+environment = "northstation.dme"
 
 [langserver]
 dreamchecker = true

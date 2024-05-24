@@ -1,6 +1,6 @@
 /datum/citizenship/tau_ceti
 	name = CITIZENSHIP_BIESEL
-	description = "The Republic of Biesel is an independent system within the Core of human space. It is heavily tied to the NanoTrasen corporation at nearly every level of government. \
+	description = "The TEST Republic of Biesel is an independent system within the Core of human space. It is heavily tied to the NanoTrasen corporation at nearly every level of government. \
 	It is one of the most populated systems in human space, a financial center, industrial powerhouse and one of the most prestigious systems in the galaxy. It is also very known for \
 	its large xeno population which enjoys various privileges compared to other space powers. With a very lax migration policy, virtually everyone is welcome to live here. However, \
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
@@ -352,3 +352,95 @@
 		/obj/item/storage/box/dominia_honor = 1,
 		/obj/item/gun/projectile/pistol/dominia = 1
 	)
+
+/datum/citizenship/federation
+	name = CITIZENSHIP_FEDERATION
+	description = "The Federation is a powerful alliance between Earth and the Pithok homeworld, formed to foster mutual cooperation \
+	and defense. This federation combines the technological prowess and industrial might of Earth with the unique resources and strategic position \
+	of the Pithok. Together, they have established a robust economy, advanced scientific research, and a formidable military presence. The federation \
+	is known for its commitment to shared governance, cultural exchange, and joint exploration initiatives, making it a beacon of unity and progress \
+	in the galaxy. Despite external pressures and occasional internal disagreements, the Terran-Pithok Federation remains a stable and influential force\
+	, promoting peace and prosperity across its territories."
+	consular_outfit = /obj/outfit/job/representative/consular/ceti
+	consular_outfit = /obj/outfit/job/representative/consular/ceti
+	assistant_outfit = /obj/outfit/job/consular_assistant/ceti
+
+	// TODO: Maybe be replaced by Pithok roles, tbd
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_VAURCA_BREEDER
+		)
+	)
+
+/datum/citizenship/ceti/get_objectives(mission_level, var/mob/living/carbon/human/H)
+	var/rep_objectives
+
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			if(isvaurca(H))
+				rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
+								"Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations.",
+								"Convince the command of the [SSatlas.current_map.station_name] of the utility of Bound labor over similar alternatives such as cyborgs or owned synthetics.")
+			else
+				rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
+								"Have [rand(2,6)] crewmembers sign a pledge of loyalty to the Republic.")
+
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			if(isvaurca(H))
+				rep_objectives = pick("Promote the superiority of the Republic of Biesel over the Sol Alliance.",
+								"Encourage non-citizens to seek citizenship in the Republic via enlistment in the Tau Ceti Foreign Legion.",
+								"Promote Zo'rane products such as Zo'ra Soda to the crew.")
+			else
+				rep_objectives = pick("Convince [rand(2,4)] Tau Ceti crewmembers who are not a part of Command or Security to join the Tau Ceti Foreign Legion.",
+								"Convince [rand(3,6)] crewmembers of Tau Ceti superiority over the Sol Alliance.")
+		else
+			if(isvaurca(H))
+				rep_objectives = pick("Run a questionanaire on Tau Ceti citizens' views on Vaurca citizenship.",
+								"Question non-Vaurca employees about their Vaurca coworkers, looking for areas of improvement.",
+								"Protect and promote the public image of the Zo'ra Hive to all [SSatlas.current_map.boss_name] employees.")
+			else
+				rep_objectives = pick("Run a questionnaire on Tau Ceti citizens' views on synthetic citizenship.",
+								"Run a questionnaire on Tau Ceti citizens' views on vaurca citizenship.")
+
+
+	return rep_objectives
+
+// TODO: Modify this to fit in with the Federation
+/obj/outfit/job/representative/consular/ceti
+	name = "Tau Ceti Consular Officer"
+
+	uniform = /obj/item/clothing/under/suit_jacket/navy
+	accessory = /obj/item/clothing/accessory/tc_pin
+	backpack_contents = list(
+		/obj/item/storage/box/ceti_visa = 1,
+		/obj/item/storage/box/tcaf_pamphlet = 1,
+		/obj/item/device/versebook/biesel = 1, //constitution
+		/obj/item/stamp/biesel = 1,
+	)
+
+// TODO: Modify this to fit in with the Federation
+/obj/outfit/job/consular_assistant/ceti
+	name = "Tau Ceti Diplomatic Aide"
+	accessory = /obj/item/clothing/accessory/tc_pin
+
+// TODO: Modify this to fit in with the Federation
+/obj/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(H)
+		if(isvaurca(H))
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/biesel(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt)
+		else
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/blaster/revolver(H), slot_belt)
+		if(!visualsOnly)
+			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+	return TRUE

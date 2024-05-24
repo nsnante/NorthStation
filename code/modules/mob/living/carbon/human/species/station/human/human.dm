@@ -52,7 +52,8 @@
 		/singleton/origin_item/culture/solarian,
 		/singleton/origin_item/culture/dominia,
 		/singleton/origin_item/culture/coalition,
-		/singleton/origin_item/culture/elyran
+		/singleton/origin_item/culture/elyran,
+		/singleton/origin_item/culture/the_federation
 	)
 
 	zombie_type = SPECIES_ZOMBIE
